@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+<<<<<<< HEAD
+=======
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+>>>>>>> origin/diego_dev

@@ -14,7 +14,13 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('convenio')->unsigned();
+            $table->string('nombre');
+            $table->string('descripcion');
             $table->timestamps();
+
+            $table->engine = "InnoDB";
+            $table->foreign('convenio')->references('id')->on('agreements')->onDelete('cascade');
         });
     }
 

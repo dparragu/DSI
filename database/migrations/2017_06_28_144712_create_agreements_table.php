@@ -14,6 +14,16 @@ class CreateAgreementsTable extends Migration
     {
         Schema::create('agreements', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('estado')->unsigned();
+            $table->string('nombre');
+            $table->date('fecha_inicio');
+            $table->date('fecha_termino');
+            $table->date('fecha_firma');
+            $table->date('fecha_decreto');
+            $table->integer('decreto');
+            $table->boolean('vigente');
+            $table->integer('vigencia');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        //
+        return view('institution.index');
     }
 
     /**

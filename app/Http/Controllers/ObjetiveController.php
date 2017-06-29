@@ -15,7 +15,7 @@ class ObjetiveController extends Controller
      */
     public function index()
     {
-        //
+        return view('objetive.index');
     }
 
     /**

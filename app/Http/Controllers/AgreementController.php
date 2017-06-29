@@ -1,4 +1,5 @@
 <?php
+// Controlador para modulo de convenios
 
 namespace App\Http\Controllers;
 

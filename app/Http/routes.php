@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home',        'HomeController@index');
-Route::get('/institution', 'InstitutionController@index');
-Route::get('/objetive',    'ObjetiveController@index');
-Route::get('/agreement',   'AgreementController@index');
-Route::get('/area',        'AreaController@index');
-Route::get('/activity',    'ActivityController@index');
+Route::get('/home',         'HomeController@index');
+Route::get('/institution',  'InstitutionController@index');
+Route::get('/objetive',     'ObjetiveController@index');
+Route::resource('agreement','AgreementController');
+Route::get('/area',         'AreaController@index');
+Route::get('/activity',     'ActivityController@index');

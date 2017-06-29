@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Agreement;
 
 class AgreementController extends Controller
 {
@@ -15,7 +16,7 @@ class AgreementController extends Controller
      */
     public function index()
     {
-        return view('area.index');
+        return view('agreement.index');
     }
 
     /**
@@ -58,7 +59,8 @@ class AgreementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agreement = Agreement::find($id);
+		return view('agreement.edit',compact('agreement'));
     }
 
     /**
@@ -70,7 +72,15 @@ class AgreementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		//sin validación por ahora
+         $this->validate($request, [
+            // 'title' => 'required',
+            // 'description' => 'required',
+         ]);
+
+        Agreement::find($id)->update($request->all());
+        return redirect()->route('agreement.index')
+                        ->with('success','Convenio actualizado');
     }
 
     /**

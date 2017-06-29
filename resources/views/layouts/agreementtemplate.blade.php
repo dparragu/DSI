@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Universidad de Macondo - Convenios</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -23,9 +23,10 @@
         .fa-btn {
             margin-right: 6px;
         }
+
     </style>
 </head>
-<body id="app-layout">
+<body id="agreement-layout">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -47,7 +48,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/convenios') }}">Inicio</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -72,7 +73,43 @@
         </div>
     </nav>
 
-@yield('content')
+
+
+
+<div class="row">
+
+<!-- Menú para la vista de Agreements -->
+  <div class="col-md-3">
+    <div class="list-group">
+<!-- list-group para menú de gestion de convenios -->
+      <a href="#" class="list-group-item active">Gestión de Convenios</a>
+      <div class="list-group-item">
+        <ul class="">
+          <li><a href="{{url('/convenios/create')}}">Registrar Convenios</a></li>
+          <li><a href="/agreement/">Modificar Convenios</a></li>
+          <li><a href="/agreement/vizualizarConvenio">Eliminar Convenios</a></li>
+        </ul>
+      </div>
+      <div class="list-group-item">
+        <ul>
+          <li><a href="{{url('/agreement/create')}}">Asociar Instituciones por Convenio</a></li>
+        </ul>
+      </div>
+      <div class="list-group-item">
+        <ul class="">
+          <li><a href="{{url('/agreement/')}}">Consultar Convenios</a></li>
+          <li><a href="/agreement/">Consultar Coordinadores</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- Fin vista Menú de Agreements -->
+
+@yield('indexcontent')
+@yield('createsection')
+</div>
+
+
 
 
     <!-- JavaScripts -->

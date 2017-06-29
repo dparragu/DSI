@@ -19,3 +19,7 @@ Route::auth();
 
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/convenios', 'AgreementController@index');
+
+Route::get('convenios/create', 'AgreementController@create');

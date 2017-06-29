@@ -16,7 +16,7 @@ class AgreementController extends Controller
      */
     public function index()
     {
-        //
+        return view('agreement/index');
     }
 
     /**
@@ -26,7 +26,7 @@ class AgreementController extends Controller
      */
     public function create()
     {
-        //
+        return view('agreement/create');
     }
 
     /**

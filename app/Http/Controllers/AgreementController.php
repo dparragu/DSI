@@ -4,7 +4,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Agreement;
+use App\Area;
 use App\Http\Requests;
 
 class AgreementController extends Controller
@@ -26,7 +27,9 @@ class AgreementController extends Controller
      */
     public function create()
     {
-        return view('agreement/create');
+        $agreements = Agreement::All();
+        $areas = Area::All();
+        return view('agreement/create', ['agreements' => $agreements], ['areas' => $areas]);
     }
 
     /**

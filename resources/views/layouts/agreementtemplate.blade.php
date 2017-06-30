@@ -23,6 +23,10 @@
         .fa-btn {
             margin-right: 6px;
         }
+        #titulo_index_agreement {
+          text-align: center;
+          color: grey;
+        }
 
     </style>
 </head>

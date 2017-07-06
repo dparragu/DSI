@@ -50,7 +50,7 @@
               </div>
 
               <div class="form-group">
-                {!! Form::reset('Limpiar', ["class" => "btn btn-reset btn-block"]) !!}
+                {!! Form::reset('Limpiar', ["class" => "btn  btn-warning btn-reset btn-block"]) !!}
               </div>
  
           {!! Form::close() !!}

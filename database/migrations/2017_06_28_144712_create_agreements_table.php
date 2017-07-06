@@ -24,6 +24,7 @@ class CreateAgreementsTable extends Migration
             $table->boolean('vigente');
             $table->integer('vigencia');
             $table->string('tipo');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }

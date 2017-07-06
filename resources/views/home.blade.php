@@ -14,7 +14,7 @@
 					<li class="list-group-item"><a href="#">Home</a></li>
 					<li class="list-group-item"><a href="institution">Institucion</a></li>
 					<li class="list-group-item"><a href="activity">Actividad</a></li>
-					<li class="list-group-item"><a href="agreement">Convenios</a></li>
+					<li class="list-group-item"><a href="convenios">Convenios</a></li>
 					<li class="list-group-item"><a href="area">Area</a></li>
 					<li class="list-group-item"><a href="objetive">Objetivos</a></li>
 				</ul>                

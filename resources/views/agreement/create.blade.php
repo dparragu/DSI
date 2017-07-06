@@ -1,6 +1,6 @@
 @extends('layouts.agreementtemplate')
 
-@section('createsection')
+@section('content')
 
 <div class="col-md-9 col-md-offset-0">
   <div class="panel panel-default">
@@ -31,9 +31,6 @@
           <label for="descripcion_convenio">Descripcion</label>
           <textarea class="form-control" rows="3" placeholder="Ingrese una descripcion para Convenio" maxlength="500" cols="3"></textarea>
         </div>
-
-
-
       </form>
 
   </div>

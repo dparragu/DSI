@@ -1,6 +1,6 @@
 @extends('layouts.agreementtemplate')
 
-@section('indexcontent')
+@section('content')
 
   <div class="col-md-9 col-md-offset-0">
     <div class="panel panel-default">

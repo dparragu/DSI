@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Agreement;
 use App\Area;
 use App\Http\Requests;
-use App\Agreement;
 
 class AgreementController extends Controller
 {
@@ -30,7 +29,7 @@ class AgreementController extends Controller
     {
         $agreements = Agreement::All();
         $areas = Area::All();
-        return view('agreement/create', ['agreements' => $agreements], ['areas' => $areas]);
+        return view('agreement.create', ['agreements' => $agreements], ['areas' => $areas]);
     }
 
     /**
@@ -83,7 +82,7 @@ class AgreementController extends Controller
          ]);
 
         Agreement::find($id)->update($request->all());
-        return redirect()->route('agreement.index')
+        return redirect()->route('convenios.index')
                         ->with('success','Convenio actualizado');
     }
 

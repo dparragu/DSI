@@ -79,19 +79,20 @@
 
 
 
-
+<div class="container">
 <div class="row">
 
 <!-- Menú para la vista de Agreements -->
   <div class="col-md-3">
     <div class="list-group">
 <!-- list-group para menú de gestion de convenios -->
-      <a href="#" class="list-group-item active">Gestión de Convenios</a>
+      <a href="{{url('/convenios')}}" class="list-group-item active">Gestión de Convenios</a>
       <div class="list-group-item">
         <ul class="">
-          <li><a href="{{url('/convenios/create')}}">Registrar Convenios</a></li>
-          <li><a href="/agreement/">Modificar Convenios</a></li>
-          <li><a href="/agreement/vizualizarConvenio">Eliminar Convenios</a></li>
+          <li><a href="{{url('/convenios/create')}}">Registrar Convenios</a></li>      
+		  <!-- Se requiere un id para poder eliminar o actualizar un convenio en particular, talvez es mejor que se usa consultar convenios apra elegir el convenio a editar -->
+		  <!-- <li><a href="{{url('/convenios/edit')}}">Modificar Convenio</a></li> --> 
+          <!-- <li><a href="{{url('/convenios/destroy')}}">Eliminar Convenio</a></li> -->
         </ul>
       </div>
       <div class="list-group-item">
@@ -101,7 +102,7 @@
       </div>
       <div class="list-group-item">
         <ul class="">
-          <li><a href="{{url('/agreement/')}}">Consultar Convenios</a></li>
+          <li><a href="{{url('/convenios/show')}}">Consultar Convenios</a></li>
           <li><a href="/agreement/">Consultar Coordinadores</a></li>
         </ul>
       </div>
@@ -109,8 +110,8 @@
   </div>
 <!-- Fin vista Menú de Agreements -->
 
-@yield('indexcontent')
-@yield('createsection')
+@yield('content')
+</div>
 </div>
 
 

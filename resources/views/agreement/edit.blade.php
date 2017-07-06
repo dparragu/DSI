@@ -1,15 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.agreementtemplate')
 
 @section('content')
-<div class="container">
+<div class="col-md-9 col-md-offset-0">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Editar</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('agreement.index') }}"> Regresar</a>
-            </div>
+                <h2>Modificar convenio</h2>
+            </div>            
         </div>
     </div>
 
@@ -24,7 +21,7 @@
         </div>
     @endif
 
-    {!! Form::model($agreement, ['method' => 'PATCH','route' => ['agreement.update', $agreement->id]]) !!}
+    {!! Form::model($agreement, ['method' => 'PATCH','route' => ['convenios.update', $agreement->id]]) !!}
     <div class="row">
 
 		<div class="col-xs-12 col-sm-12 col-md-12">

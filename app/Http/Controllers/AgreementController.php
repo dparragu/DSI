@@ -1,9 +1,11 @@
 <?php
+// Controlador para modulo de convenios
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Agreement;
+use App\Area;
 use App\Http\Requests;
 
 class AgreementController extends Controller
@@ -15,7 +17,7 @@ class AgreementController extends Controller
      */
     public function index()
     {
-        //
+        return view('agreement.index');
     }
 
     /**
@@ -25,7 +27,9 @@ class AgreementController extends Controller
      */
     public function create()
     {
-        //
+        $agreements = Agreement::All();
+        $areas = Area::All();
+        return view('agreement.create', ['agreements' => $agreements], ['areas' => $areas]);
     }
 
     /**
@@ -58,7 +62,8 @@ class AgreementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $agreement = Agreement::find($id);
+		return view('agreement.edit',compact('agreement'));
     }
 
     /**
@@ -70,7 +75,15 @@ class AgreementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		//sin validación por ahora
+         $this->validate($request, [
+            // 'title' => 'required',
+            // 'description' => 'required',
+         ]);
+
+        Agreement::find($id)->update($request->all());
+        return redirect()->route('convenios.index')
+                        ->with('success','Convenio actualizado');
     }
 
     /**

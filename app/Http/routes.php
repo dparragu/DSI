@@ -22,7 +22,7 @@ Route::get('/institution',  'InstitutionController@index');
 Route::get('/objetive',     'ObjetiveController@index');
 Route::resource('convenios','AgreementController');
 Route::get('/area',         'AreaController@index');
-Route::get('/activity',     'ActivityController@index');
+Route::resource('activity',     'ActivityController');
 
 
 

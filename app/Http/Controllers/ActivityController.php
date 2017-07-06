@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Agreement;
+use App\Activity;
 use App\Http\Requests;
 
 class ActivityController extends Controller
@@ -15,7 +16,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        return view('institution.index');
+        return view('activity.index');
     }
 
     /**
@@ -25,7 +26,9 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        //
+        $activity = Activity::All();
+        $agreements = Agreement::All();
+        return view('activity.create', ['activity' => $activity], ['agreements' => $agreements]);
     }
 
     /**
@@ -36,7 +39,11 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $activity = new Activity;
+ 
+        $activity->save();
+ 
+        return redirect('activity.index')->with('message', 'Actividad Guardada');
     }
 
     /**

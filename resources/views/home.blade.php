@@ -11,7 +11,6 @@
 					Lista de controladores y sus vistas
 				</div>
 				<ul class="list-group">
-					<li class="list-group-item"><a href="#">Home</a></li>
 					<li class="list-group-item"><a href="institution">Institucion</a></li>
 					<li class="list-group-item"><a href="activity">Actividad</a></li>
 					<li class="list-group-item"><a href="convenios">Convenios</a></li>

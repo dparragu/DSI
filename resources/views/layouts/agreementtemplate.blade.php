@@ -44,7 +44,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     U. de Macondo
                 </a>
             </div>
@@ -52,7 +52,10 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/convenios') }}">Inicio</a></li>
+                    <li><a href="{{ url('/home') }}">Inicio</a></li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/convenios') }}">Convenios</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -103,7 +106,7 @@
       <div class="list-group-item">
         <ul class="">
           <li><a href="{{url('/convenios/show')}}">Consultar Convenios</a></li>
-          <li><a href="/agreement/">Consultar Coordinadores</a></li>
+          <li><a href="{{url('/')}}">Consultar Coordinadores</a></li>
         </ul>
       </div>
     </div>

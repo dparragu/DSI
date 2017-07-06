@@ -109,6 +109,16 @@
           <li><a href="{{url('/')}}">Consultar Coordinadores</a></li>
         </ul>
       </div>
+
+      <a href="{{url('/activity')}}" class="list-group-item active">Gestión de Actividades</a>
+      <div class="list-group-item">
+        <ul class="">
+          <li><a href="{{url('/activity/create')}}">Registrar Actividad</a></li>      
+          <!-- Se requiere un id para poder eliminar o actualizar un convenio en particular, talvez es mejor que se usa consultar convenios apra elegir el convenio a editar -->
+          <!-- <li><a href="{{url('/activity/edit')}}">Modificar Convenio</a></li> --> 
+          <!-- <li><a href="{{url('/activity/destroy')}}">Eliminar Convenio</a></li> -->
+        </ul>
+      </div>
     </div>
   </div>
 <!-- Fin vista Menú de Agreements -->

@@ -20,6 +20,10 @@ Route::auth();
 Route::get('/home',         'HomeController@index');
 Route::get('/institution',  'InstitutionController@index');
 Route::get('/objetive',     'ObjetiveController@index');
-Route::resource('agreement','AgreementController');
+Route::resource('convenios','AgreementController');
 Route::get('/area',         'AreaController@index');
 Route::get('/activity',     'ActivityController@index');
+
+
+
+

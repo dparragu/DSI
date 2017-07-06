@@ -1,9 +1,11 @@
 <?php
+// Controlador para modulo de convenios
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Agreement;
+use App\Area;
 use App\Http\Requests;
 use App\Agreement;
 
@@ -26,7 +28,9 @@ class AgreementController extends Controller
      */
     public function create()
     {
-        //
+        $agreements = Agreement::All();
+        $areas = Area::All();
+        return view('agreement/create', ['agreements' => $agreements], ['areas' => $areas]);
     }
 
     /**

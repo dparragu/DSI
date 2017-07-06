@@ -108,6 +108,11 @@ span.success, span.warning, span.danger {
  outline: 0;
 }
 
+#titulo_index_agreement {
+  text-align: center;
+  color: grey;
+}
+
 svg text {
  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
  font-size: 11px;

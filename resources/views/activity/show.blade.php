@@ -14,6 +14,7 @@
             <th>  Codigo Convenio </th>
             <th>  Nombre Actividad   </th>
             <th>  Descripción Actividad  </th>
+            <th>  Acción  </th>
 
           </tr>
         </thead>
@@ -25,7 +26,8 @@
             <td>{!! $activitytable->convenio !!}</td>
             <td>{!! $activitytable->nombre !!}</td>
             <td>{!! $activitytable->descripcion !!}</td>
-            
+            <td><a class="btn btn-default" href="{!! $activitytable->id !!}/edit" role="button"><span class="glyphicon glyphicon-pencil"></span></a> 
+            <a class="btn btn-default" href="{{route('activity.destroy', $activitytable->id)}}" role="button"><span class="glyphicon glyphicon-remove"></span></a></td>
           </tr>
           @endforeach
         </tbody>

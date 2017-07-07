@@ -22,7 +22,7 @@
         @endif
  
         <div class="panel-body">
-            {!! Form::model($activity, ['method' => 'GET','route' => ['activity.update', $activity->id]]) !!}
+            {!! Form::model($activity, ['method' => 'PATCH','route' => ['activity.update', $activity->id]]) !!}
               <div class="form-group">
                 <label for="convenio">Convenio</label>
                 <select name="convenio" >

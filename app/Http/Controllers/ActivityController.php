@@ -43,10 +43,10 @@ class ActivityController extends Controller
         $activity = Activity::create([
             'convenio'      => $request->convenio,
             'nombre'      => $request->get('nombre'),
-            'descripcion'      => $request->get('des'),
+            'descripcion'      => $request->get('descripcion'),
             ]);
         if($activity->save()){
-            session()->flash('flash_message', 'Actividad Guardada');
+            session()->flash('flash_message', 'Actividad guardada');
             return redirect('activity');
         }
         else{
@@ -93,12 +93,18 @@ class ActivityController extends Controller
         //sin validación por ahora
          $this->validate($request, [
              'convenio' => 'required',
-             //'description' => 'required',
+             'nombre'   => 'required',
+             'descripcion' => 'required',
          ]);
 
-        Activity::find($id)->update($request->all());
-        return redirect()->route('activity.index')
-                        ->with('success','Convenio actualizado');
+        if(Activity::find($id)->update($request->all())){
+            session()->flash('flash_message', 'Actividad actualizada');
+            return redirect('activity');
+        }
+        else{
+            session()->flash('flash_message', 'La Actividad no se actualizó');
+            return redirect('activity/show');
+        }
     }
 
     /**
@@ -108,7 +114,17 @@ class ActivityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $activity = Activity::find($id);        
+        if($activity->delete())
+        {
+            session()->flash('flash_message', 'Actividad eliminada');
+            return redirect('activity');    
+        }
+        else{
+            session()->flash('flash_message', 'La Actividad no se eliminó');
+            return redirect('activity/delete');
+        }
+        
     }
 }

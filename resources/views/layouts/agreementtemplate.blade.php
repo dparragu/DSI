@@ -58,6 +58,10 @@
                     <li><a href="{{ url('/convenios') }}">Convenios</a></li>
                 </ul>
 
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/activity') }}">Actividad</a></li>
+                </ul>
+
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
@@ -123,14 +127,13 @@
         </ul>
       </div>
 
-      <a href="{{url('/activity/show')}}" class="list-group-item active">Gestión de Actividades</a>
+      <a href="{{url('/activity')}}" class="list-group-item active">Gestión de Actividades</a>
       <div class="list-group-item">
         <ul class="">
           <li><a href="{{url('/activity/show')}}">Visualizar Actividad</a></li>
           <li><a href="{{url('/activity/create')}}">Registrar Actividad</a></li>      
-          <!-- Se requiere un id para poder eliminar o actualizar un convenio en particular, talvez es mejor que se usa consultar convenios apra elegir el convenio a editar -->
-          <li><a href="{{url('/activity')}}">Modificar Actividad</a></li>
-          <!-- <li><a href="{{url('/activity/destroy')}}">Eliminar Convenio</a></li> -->
+          <li><a href="{{url('/activity/show')}}">Modificar Actividad</a></li>
+          <li><a href="{{url('/activity/show')}}">Eliminar Actividad</a></li>
         </ul>
       </div>
     </div>

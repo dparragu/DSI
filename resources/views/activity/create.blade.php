@@ -43,7 +43,7 @@
                 <label for="descripcion">
                     Descripción Actividad
                 </label>
-                <input type="text" class="form-control" name="des" required placeholder="Ingrese una Descripción">
+                <textarea class="form-control" rows="4" name="descripcion" required placeholder="Ingrese una Descripción"></textarea>
               </div>
       
               <div class="form-group">

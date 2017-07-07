@@ -23,6 +23,10 @@ Route::get('/objetive',     'ObjetiveController@index');
 Route::resource('convenios','AgreementController');
 Route::get('/area',         'AreaController@index');
 Route::resource('activity',     'ActivityController');
+Route::get('activity/{id}/destroy', [
+    'uses' => 'ActivityController@destroy',
+    'as'    => 'activity.destroy'
+    ]);
 
 
 

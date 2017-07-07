@@ -43,7 +43,7 @@ class ActivityController extends Controller
         $activity = Activity::create([
             'convenio'      => $request->convenio,
             'nombre'      => $request->get('nombre'),
-            'descripcion'      => $request->get('descripcion'),
+            'descripcion'      => $request->get('des'),
             ]);
         if($activity->save()){
             session()->flash('flash_message', 'Actividad Guardada');

@@ -43,7 +43,7 @@
                 <label for="descripcion">
                     Descripción Actividad
                 </label>
-                <input type="text" class="form-control" name="descripcion" required placeholder="Ingrese una Descripción">
+                <input type="text" class="form-control" name="des" required placeholder="Ingrese una Descripción">
               </div>
       
               <div class="form-group">

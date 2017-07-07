@@ -61,9 +61,11 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $activities = Activity::All();
+        $activities = Activity::orderBy('nombre', 'asc')->paginate(5);
+         return view('activity.index',compact('activities'));
     }
 
     /**

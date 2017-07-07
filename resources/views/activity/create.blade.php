@@ -22,7 +22,7 @@
         @endif
  
         <div class="panel-body">
-            {!! Form::open(array('route' => 'activity.store', 'method' => 'POST')) !!}
+        {!! Form::model($activity, ['method' => 'POST','route' => 'activity.store']) !!}
               <div class="form-group">
                 <label for="convenio">Convenio</label>
                 <select name="convenio" >

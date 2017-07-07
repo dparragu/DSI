@@ -64,7 +64,7 @@ class ActivityController extends Controller
     public function show()
     {
         $activities = Activity::All();
-        $activities = Activity::orderBy('nombre', 'asc')->paginate(5);
+        $activities = Activity::orderBy('id', 'asc')->paginate(50);
          return view('activity.show',compact('activities'));
     }
 
@@ -77,7 +77,8 @@ class ActivityController extends Controller
     public function edit($id)
     {
         $activity = Activity::find($id);
-        return view('activity.edit',compact('activity'));
+        $agreements = Agreement::All();
+        return view('activity.edit', compact('activity', 'agreements'));
     }
 
     /**

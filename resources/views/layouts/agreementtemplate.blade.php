@@ -129,7 +129,7 @@
           <li><a href="{{url('/activity/show')}}">Visualizar Actividad</a></li>
           <li><a href="{{url('/activity/create')}}">Registrar Actividad</a></li>      
           <!-- Se requiere un id para poder eliminar o actualizar un convenio en particular, talvez es mejor que se usa consultar convenios apra elegir el convenio a editar -->
-          <li><a href="{{url('/activity/')}}">Modificar Actividad</a></li>
+          <li><a href="{{url('/activity')}}">Modificar Actividad</a></li>
           <!-- <li><a href="{{url('/activity/destroy')}}">Eliminar Convenio</a></li> -->
         </ul>
       </div>

@@ -49,10 +49,6 @@
               <div class="form-group">
                 {!! Form::submit('Actualizar', ["class" => "btn btn-success btn-block"]) !!}
               </div>
-
-              <div class="form-group">
-                {!! Form::reset('Limpiar', ["class" => "btn  btn-warning btn-reset btn-block"]) !!}
-              </div>
  
           {!! Form::close() !!}
         </div>

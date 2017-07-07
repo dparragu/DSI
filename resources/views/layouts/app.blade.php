@@ -54,6 +54,10 @@
                     <li><a href="{{ url('/convenios') }}">Convenios</a></li>
                 </ul>
 
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/activity') }}">Actividad</a></li>
+                </ul>
+
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->

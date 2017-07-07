@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Agreement;
 use App\Activity;
 use App\Http\Requests;
+use DB;
 
 class ActivityController extends Controller
 {
@@ -26,9 +27,9 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        $activity = Activity::All();
+        $activity = Activity::orderBy('id', 'asc');
         $agreements = Agreement::All();
-        return view('activity.create', ['activity' => $activity], ['agreements' => $agreements]);
+        return view('activity.create', compact('activity', 'agreements'));
     }
 
     /**
@@ -39,11 +40,19 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        $activity = new Activity;
- 
-        $activity->save();
- 
-        return redirect('activity.index')->with('message', 'Actividad Guardada');
+        $activity = Activity::create([
+            'convenio'      => $request->convenio,
+            'nombre'      => $request->get('nombre'),
+            'descripcion'      => $request->get('descripcion'),
+            ]);
+        if($activity->save()){
+            session()->flash('flash_message', 'Actividad Guardada');
+            return redirect('activity');
+        }
+        else{
+            session()->flash('flash_message', 'La Actividad  no se guardo');
+            return redirect('activity/create');
+        }
     }
 
     /**
@@ -65,7 +74,8 @@ class ActivityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $activity = Activity::find($id);
+        return view('activity.edit',compact('activity'));
     }
 
     /**
@@ -77,7 +87,15 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //sin validación por ahora
+         $this->validate($request, [
+             'convenio' => 'required',
+             //'description' => 'required',
+         ]);
+
+        Activity::find($id)->update($request->all());
+        return redirect()->route('activity.index')
+                        ->with('success','Convenio actualizado');
     }
 
     /**

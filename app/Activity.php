@@ -23,6 +23,6 @@ class Activity extends Model
     }
 
     public function agreements(){
-        return $this->hasMany('Agreement');
+        return $this->hasMany('App\Agreement');
     }
 }

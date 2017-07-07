@@ -22,27 +22,28 @@
         @endif
  
         <div class="panel-body">
-            {!! Form::open(['route' => 'activity.store']) !!}
+            {!! Form::open(array('route' => 'activity.store', 'method' => 'POST')) !!}
               <div class="form-group">
-                <label for="tipo_convenio">Tipo de Convenio</label>
-                <select name="Tipo de convenio">
+                <label for="convenio">Convenio</label>
+                <select name="convenio" >
                 @foreach ($agreements as $agreement)
-                  <option>{{ $agreement->tipo }}</option>
+                  <option value="{!! $agreement->id !!}">{!! $agreement->nombre !!}</option>
                 @endforeach
                 </select>
-          
               </div>
  
               <div class="form-group">
-                {!! Form::text('nombre', null,
-                    ['class'=>'form-control', 'placeholder'=>'Nombre Actividad'])
-                !!}
+                <label for="nombre">
+                    Nombre Actividad
+                </label>
+                <input type="text" class="form-control" name="nombre" required placeholder="Ingrese un nombre">
               </div>
-
+ 
               <div class="form-group">
-                {!! Form::text('descripcion', null,
-                    ['class'=>'form-control', 'placeholder'=>'Descripcion Actividad', 'maxlength'=>'500'])
-                !!}
+                <label for="descripcion">
+                    Descripción Actividad
+                </label>
+                <input type="text" class="form-control" name="descripcion" required placeholder="Ingrese una Descripción">
               </div>
       
               <div class="form-group">

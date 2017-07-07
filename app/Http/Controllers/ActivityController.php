@@ -65,7 +65,7 @@ class ActivityController extends Controller
     {
         $activities = Activity::All();
         $activities = Activity::orderBy('nombre', 'asc')->paginate(5);
-         return view('activity.index',compact('activities'));
+         return view('activity.show',compact('activities'));
     }
 
     /**

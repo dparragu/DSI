@@ -47,7 +47,7 @@ class ActivityController extends Controller
             ]);
         if($activity->save()){
             session()->flash('flash_message', 'Actividad guardada');
-            return redirect('activity');
+            return redirect('activity/show');
         }
         else{
             session()->flash('flash_message', 'La Actividad  no se guardo');
@@ -99,7 +99,7 @@ class ActivityController extends Controller
 
         if(Activity::find($id)->update($request->all())){
             session()->flash('flash_message', 'Actividad actualizada');
-            return redirect('activity');
+            return redirect('activity/show');
         }
         else{
             session()->flash('flash_message', 'La Actividad no se actualizó');

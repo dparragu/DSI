@@ -64,7 +64,7 @@ class ActivityController extends Controller
     public function show()
     {
         $activities = Activity::All();
-        $activities = Activity::orderBy('id', 'asc')->paginate(50);
+        $activities = Activity::orderBy('id', 'asc')->paginate(5);
          return view('activity.show',compact('activities'));
     }
 

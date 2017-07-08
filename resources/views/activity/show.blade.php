@@ -32,7 +32,9 @@
           @endforeach
         </tbody>
       </table>
-    
+      <div class="text-center">
+          {!! $activities->links() !!}
+      </div>
       </div>
     </div>
   </div>

@@ -10,50 +10,101 @@
         </div>
     </div>
 
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>¡Error!</strong> Exiten uno o más errores en el formulario.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+    @if($errors->has())
+            <div class='alert alert-danger'>
+                 @foreach ($errors->all('<p>:message</p>') as $message)
+                    {!! $message !!}
                 @endforeach
-            </ul>
-        </div>
-    @endif
+            </div>
+        @endif
+ 
+        @if (Session::has('message'))
+            <div class="alert alert-success">{{ Session::get('message') }}</div>
+        @endif
 
-    {!! Form::model($agreement, ['method' => 'PATCH','route' => ['convenios.update', $agreement->id]]) !!}
+    {!! Form::model($agreement, ['method' => 'PATCH','route' => ['agreement.update', $agreement->id]]) !!}
     <div class="row">
 
-		<div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Nombre:</strong>
-                {!! Form::text('nombre', null, array('placeholder' => 'Nombre','class' => 'form-control')) !!}
-            </div>
-        </div>
-	
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Estado:</strong>
-                {!! Form::number('estado', null, array('placeholder' => 'Estado','class' => 'form-control')) !!}
-            </div>
-        </div>
-		
-		<div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-                <strong>Fecha Inicio:</strong>
-                {!! Form::date('fecha_inicio', null, array('placeholder' => 'Fecha','class' => 'form-control')) !!}
-            </div>
-        </div>
-		<div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-                <strong>Fecha Decreto:</strong>
-                {!! Form::date('fecha_decreto', null, array('placeholder' => 'Fecha','class' => 'form-control')) !!}
-            </div>
-        </div>
+		<div class="form-group">
+                <label for="estado">Estado Convenio</label>
+                {!! Form::select('estado', ['0' => 'Activo', '1' => 'Terminado'], $agreement->estado, ['placeholder' => 'Selecciona una opción...']) !!}
+              </div>
+ 
+              <div class="form-group">
+                <label for="nombre">
+                    Nombre Convenio
+                </label>
+                {!! Form::text('nombre', null, array('placeholder' => 'Nombre Convenio','class' => 'form-control')) !!}
+              </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 text-right">
-			<button type="submit" class="btn btn-primary">Actualizar</button>
-        </div>
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="fecha_inicio">
+                    Fecha Inicio
+                </label>
+                {!! Form::date('fecha_inicio', $agreement->fecha_inicio) !!}
+                </div>
+                
+                <div class="col-md-3">
+                  <label for="fecha_termino">
+                    Fecha Termino
+                </label>
+                {!! Form::date('fecha_termino', $agreement->fecha_termino) !!}
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="fecha_firma">
+                    Fecha Firma
+                </label>
+                {!! Form::date('fecha_firma', $agreement->fecha_firma) !!}
+                </div>
+                
+                <div class="col-md-3">
+                  <label for="fecha_decreto">
+                    Fecha Decreto
+                </label>
+                {!! Form::date('fecha_decreto', $agreement->fecha_decreto) !!}
+                </div>
+
+                <div class="col-md-3">
+                <label for="decreto">Estado Decreto</label>
+                  {!! Form::select('decreto', ['0' => 'Firmado', '1' => 'No Firmado'], $agreement->decreto, ['placeholder' => 'Selecciona una opción...']) !!}
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-3">
+                  <label for="vigente">Vigente</label>
+                  {!! Form::select('vigente', ['0' => 'Si', '1' => 'No'], $agreement->vigente, ['placeholder' => 'Selecciona una opción...']) !!}
+                </div>
+
+                <div class="col-md-3">
+                <label for="vigencia">Vigencia</label>
+                  <div>
+                    {!! Form::selectRange('vigencia', 1, 12) !!}
+                  </div> 
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="tipo">
+                    Tipo
+                </label>
+                {!! Form::text('tipo', $agreement->tipo, array('placeholder' => 'Ingrese tipo de convenio','class' => 'form-control')) !!}
+              </div>
+
+              <div class="form-group">
+                <label for="descripcion">
+                    Descripción Convenio
+                </label>
+                {!! Form::textarea('descripcion', $agreement->descripcion, array('placeholder' => 'Ingrese una descripción al convenio','class' => 'form-control')) !!}
+              </div>
+
+            <div class="form-group">
+                {!! Form::submit('Actualizar', ["class" => "btn btn-primary btn-block"]) !!}
+              </div>
 
     </div>
     {!! Form::close() !!}

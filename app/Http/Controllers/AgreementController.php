@@ -28,8 +28,7 @@ class AgreementController extends Controller
     public function create()
     {
         $agreements = Agreement::All();
-        $areas = Area::All();
-        return view('agreement.create', ['agreements' => $agreements], ['areas' => $areas]);
+        return view('agreement.create', compact('agreements'));
     }
 
     /**
@@ -40,7 +39,27 @@ class AgreementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $agreement = Agreement::create([
+            'estado'      => $request->get('estado'),
+            'nombre'      => $request->get('nombre'),
+            'fecha_inicio'      => $request->get('fecha_inicio'),
+            'fecha_termino'      => $request->get('fecha_termino'),
+            'fecha_firma'      => $request->get('fecha_firma'),
+            'fecha_decreto'      => $request->get('fecha_decreto'),
+            'decreto'      => $request->get('decreto'),
+            'vigente'      => $request->get('vigente'),
+            'vigencia'      => $request->get('vigencia'),
+            'tipo'      => $request->get('tipo'),
+            'descripcion'      => $request->get('descripcion'),
+            ]);
+        if($agreement->save()){
+            session()->flash('flash_message', 'Convenio guardado');
+            return redirect('agreement');
+        }
+        else{
+            session()->flash('flash_message', 'El Convenio no se guardo');
+            return redirect('agreement/create');
+        }
     }
 
     /**
@@ -51,7 +70,9 @@ class AgreementController extends Controller
      */
     public function show($id)
     {
-        //
+        $agreements = Agreement::All();
+        $agreements = Agreement::orderBy('id', 'asc')->paginate(5);
+         return view('agreement.show',compact('agreements'));
     }
 
     /**
@@ -77,13 +98,27 @@ class AgreementController extends Controller
     {
 		//sin validación por ahora
          $this->validate($request, [
-            // 'title' => 'required',
-            // 'description' => 'required',
+             'estado' => 'required',
+             'nombre'   => 'required',
+             'fecha_inicio' => 'required',
+             'fecha_termino' => 'required',
+             'fecha_firma' => 'required',
+             'fecha_decreto' => 'required',
+             'decreto' => 'required',
+             'vigente' => 'required',
+             'vigencia' => 'required',
+             'tipo' => 'required',
+             'descripcion' => 'required',
          ]);
 
-        Agreement::find($id)->update($request->all());
-        return redirect()->route('convenios.index')
-                        ->with('success','Convenio actualizado');
+        if(Agreement::find($id)->update($request->all())){
+            session()->flash('flash_message', 'Convenio actualizado');
+            return redirect('agreement/show');
+        }
+        else{
+            session()->flash('flash_message', 'El Convenio no se actualizó');
+            return redirect('agreement/show');
+        }
     }
 
     /**
@@ -94,6 +129,15 @@ class AgreementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agreements = Agreement::find($id);        
+        if($agreements->delete())
+        {
+            session()->flash('flash_message', 'Convenio eliminado');
+            return redirect('agreement/show');    
+        }
+        else{
+            session()->flash('flash_message', 'El Convenio no se eliminó');
+            return redirect('agreement/show');
+        }
     }
 }

@@ -14,8 +14,8 @@ class Agreement extends Model
     protected $table ='agreements';
     
     protected $fillable = [
-        'id', 'estado', 'fecha_inicio', 'fecha_firma', 'fecha_decreto',
-        'decreto', 'vigente', 'vigencia', 'tipo'
+        'id', 'estado','nombre', 'fecha_inicio','fecha_termino', 'fecha_firma', 'fecha_decreto',
+        'decreto', 'vigente', 'vigencia', 'tipo', 'descripcion'
     ];
 
     public $timestamps = false;

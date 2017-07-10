@@ -5,7 +5,7 @@
 <div class="col-md-9 col-md-offset-0">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 id="titulo_create_agreement" >Registro de Actividad</h4>
+      <h4 id="titulo_create_agreement" >Modificación de Actividad</h4>
     </div>
     <div class="panel-body">
  
@@ -22,7 +22,7 @@
         @endif
  
         <div class="panel-body">
-        {!! Form::model($activity, ['method' => 'POST','route' => 'activity.store']) !!}
+            {!! Form::model($activity, ['method' => 'PATCH','route' => ['activity.update', $activity->id]]) !!}
               <div class="form-group">
                 <label for="convenio">Convenio</label>
                 <select name="convenio" >
@@ -32,26 +32,22 @@
                 </select>
               </div>
  
-              <div class="form-group">
-                <label for="nombre">
-                    Nombre Actividad
-                </label>
-                <input type="text" class="form-control" name="nombre" required placeholder="Ingrese un nombre">
-              </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Nombre:</strong>
+                        {!! Form::text('nombre', null, array('placeholder' => 'Nombre Actividad','class' => 'form-control')) !!}
+                    </div>
+                </div>
  
-              <div class="form-group">
-                <label for="descripcion">
-                    Descripción Actividad
-                </label>
-                <textarea class="form-control" rows="4" name="descripcion" required placeholder="Ingrese una Descripción"></textarea>
-              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Descripción:</strong>
+                        {!! Form::text('descripcion', null, array('placeholder' => 'Descripción Actividad','class' => 'form-control')) !!}
+                    </div>
+                </div>
       
               <div class="form-group">
-                {!! Form::submit('Guardar', ["class" => "btn btn-success btn-block"]) !!}
-              </div>
-
-              <div class="form-group">
-                {!! Form::reset('Limpiar', ["class" => "btn  btn-warning btn-reset btn-block"]) !!}
+                {!! Form::submit('Actualizar', ["class" => "btn btn-success btn-block"]) !!}
               </div>
  
           {!! Form::close() !!}

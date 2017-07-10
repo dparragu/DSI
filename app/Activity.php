@@ -11,7 +11,7 @@ class Activity extends Model
     protected $table ='activities';
 
     protected $fillable = [
-        'id', 'convenio', 'nombre', 
+        'id', 'convenio', 'nombre', 'descripcion',
     ];
 
 
@@ -23,6 +23,6 @@ class Activity extends Model
     }
 
     public function agreements(){
-        return $this->hasMany('Agreement');
+        return $this->hasMany('App\Agreement');
     }
 }
